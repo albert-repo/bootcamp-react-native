@@ -1,6 +1,5 @@
 
-console.log("");
-console.log("===JAWABAN 1===");
+console.log("\n=========\nJAWABAN 1\n=========");
 var word = 'JavaScript'; 
 var second = 'is'; 
 var third = 'awesome'; 
@@ -10,8 +9,7 @@ var sixth = 'love';
 var seventh = 'it!';
 console.log(word.concat(' ',second,' ',third,' ',fourth,' ',fifth,' ',sixth,' ',seventh));
 
-console.log("");
-console.log("===JAWABAN 2===");
+console.log("\n=========\nJAWABAN 2\n=========");
 var sentence = "I am going to be React Native Developer";
 var exampleFirstWord = sentence[0]; 
 var exampleSecondWord = sentence[2] + sentence[3]; 
@@ -39,8 +37,7 @@ console.log('Sixth Word: ' + sixthWord);
 console.log('Seventh Word: ' + seventhWord); 
 console.log('Eighth Word: ' + eighthWord)
 
-console.log("");
-console.log("===JAWABAN 3===");
+console.log("\n=========\nJAWABAN 3\n=========");
 
 var sentence2 = "wow JavaScript is so cool";
 
@@ -64,8 +61,7 @@ console.log('Third Word: ' + thirdWord2);
 console.log('Fourth Word: ' + fourthWord2); 
 console.log('Fifth Word: ' + fifthWord2);
 
-console.log("");
-console.log("===JAWABAN 4===");
+console.log("\n=========\nJAWABAN 4\n=========");
 
 var sentence3 = 'wow JavaScript is so cool'; 
 

@@ -1,5 +1,4 @@
-console.log("");
-console.log("===JAWABAN 1 IF ELSE===");
+console.log("\n========\nJAWABAN 1 IF ELSE \n========");
 
 var nama = "Junaedi"
 var peran = "Werewolf"
@@ -26,8 +25,7 @@ if (nama == "" && peran == "") {
     console.log("Siapakah aku? Mengapa aku disini?")
 }
 
-console.log("");
-console.log("===JAWABAN 2 SWITCH CASE===");
+console.log("\n========\nJAWABAN 2 SWITCH CASE\n========");
 
 var hari = 17;
 var bulan = 8;
@@ -46,8 +44,12 @@ switch (bulan) {
     case 10: { bulan = "Oktober"; break; }
     case 11: { bulan = "November"; break; }
     case 12: { bulan = "Desember"; break; }
-    // default: { console.log('Januari'); }
+    // default: { console.log('Bulan tidak sesuai!'); }
 }
 
-var kombinasi = hari + " " + bulan + " " + tahun;
-console.log (kombinasi);
+if (bulan > 0 && bulan < 13) {
+    var kombinasi = hari + " " + bulan + " " + tahun;
+    console.log (kombinasi);
+} else {
+    console.log ( "Bulan tidak sesuai!")
+}
