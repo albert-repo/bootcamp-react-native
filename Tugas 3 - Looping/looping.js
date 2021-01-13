@@ -19,7 +19,6 @@ while (angka > 0) {
     angka -= 2;
 }
 
-var separator = "===================="
 console.log("\n" + separator + "\nJawaban No.2 Looping\n" + separator);
 
 
@@ -33,7 +32,6 @@ for (var angka = 1; angka <= 20; angka++) {
     }
 }
 
-var separator = "===================="
 console.log("\n" + separator + "\nJawaban No.3 Looping\n" + separator);
 
 // variable pagar di buat dinamis menggunakan looping
@@ -50,7 +48,6 @@ if (deret = 8) {
     }
 }
 
-var separator = "===================="
 console.log("\n" + separator + "\nJawaban No.4 Looping\n" + separator);
 
 var tangga = "#";
@@ -60,7 +57,6 @@ for (var deret = 1; deret <= 7; deret++) {
     tangga = tangga + "#";
 }
 
-var separator = "===================="
 console.log("\n" + separator + "\nJawaban No.5 Looping\n" + separator);
 
 // cara paling simple
