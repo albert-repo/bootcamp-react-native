@@ -71,13 +71,13 @@ arrayToObject([]) // ""
 console.log("\n" + separator + "\nJawaban No.2 Object\n" + separator + "\n");
 
 function shoppingTime(memberId, money) {
-    var itemList = [ 
-        [ "Sepatu Stacattu",  "Baju Zoro",  "Baju H&N", "Sweater Uniklooh", "Casing Handphone"],
+    var itemList = [
+        ["Sepatu Stacattu", "Baju Zoro", "Baju H&N", "Sweater Uniklooh", "Casing Handphone"],
         [1500000, 500000, 250000, 175000, 50000]
     ]
 
     var totalItem = itemList[0].length
-    
+
     // var productList = {
     //     "Sepatu Stacattu": 1500000,
     //     "Baju Zoro": 500000,
@@ -96,11 +96,15 @@ function shoppingTime(memberId, money) {
         memberObject.money = money
         changeMoney = money
         memberObject.listPurchased = []
-        for (i=0; i<totalItem; i++){
-            if (money > itemList[1][i]){
+
+        // pembelian item maksimal 1
+
+        for (i = 0; i < totalItem; i++) {
+            if (money > itemList[1][i] && changeMoney >= itemList[1][i]) {
                 // console.log(itemList[0][i])
                 memberObject.listPurchased.push(itemList[0][i]);
                 changeMoney -= itemList[1][i];
+                // money -= itemList[1][i];
             }
         }
         memberObject.changeMoney = changeMoney
@@ -129,3 +133,94 @@ console.log(shoppingTime('82Ku8Ma742', 170000));
 console.log(shoppingTime('', 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
 console.log(shoppingTime('234JdhweRxa53', 15000)); //Mohon maaf, uang tidak cukup
 console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja
+
+console.log("\n" + separator + "\nJawaban No.3 Object\n" + separator + "\n");
+
+function naikAngkot(arrPenumpang) {
+    rute = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+    var totalItem = arrPenumpang.length
+
+    // console.log(totalItem,arrPenumpang)
+
+    var resultArray = []
+
+    if (arrPenumpang <= 0) {
+        return []
+    } else {
+        // return ('masuk sini')
+
+        for (i = 0; i < totalItem; i++) {
+            var resultObject = {}
+            var naikIndex = rute.indexOf(arrPenumpang[i][1])
+            var tujuanIndex = rute.indexOf(arrPenumpang[i][2])
+            var totalBayar = (tujuanIndex - naikIndex) * 2000
+
+            resultObject.penumpang = arrPenumpang[i][0]
+            resultObject.naikDari = arrPenumpang[i][1]
+            resultObject.tujuan = arrPenumpang[i][2]
+            resultObject.bayar = totalBayar
+
+            // console.log (naikIndex, tujuanIndex, totalBayar)
+            // console.log(resultObject)
+            resultArray.push(resultObject)
+            // console.log('push done')
+
+            // return (resultArray); 
+        }
+
+        return(resultArray)
+    }
+}
+
+//TEST CASE
+console.log(naikAngkot([['Dimitri', 'B', 'F'], ['Icha', 'A', 'B']]));
+// [ { penumpang: 'Dimitri', naikDari: 'B', tujuan: 'F', bayar: 8000 },
+//   { penumpang: 'Icha', naikDari: 'A', tujuan: 'B', bayar: 2000 } ]
+
+console.log(naikAngkot([])); //[]
+
+
+// var AA = { penumpang: 'Dimitri', naikDari: 'B', tujuan: 'F', bayar: 8000 };
+// var BB = { penumpang: 'Icha', naikDari: 'A', tujuan: 'B', bayar: 2000 };
+// var CC = []
+
+// CC.push(AA);
+// CC.push(BB);
+
+// console.log(CC);
+
+// function naikAngkotVersiGurunya(arrPenumpang) {
+//     rute = ['A', 'B', 'C', 'D', 'E', 'F'];
+//     var arrOutput = []
+//     if (arrPenumpang.length <= 0) {
+//         return []
+//     }
+
+//     for (var i = 0; i < arrPenumpang.length; i++) {
+//         var objOutput = {}
+//         var asal = arrPenumpang[i][1]
+//         var tujuan = arrPenumpang[i][2]
+//         var indexAsal;
+//         var indexTujuan;
+
+//         for (var j = 0; j < rute.length; j++) {
+//             if (rute[j] == asal) {
+//                 indexAsal = j
+//             } else if (rute[j] === tujuan) {
+//                 indexTujuan = j
+//             }
+//         }
+
+//         var bayar = (indexTujuan - indexAsal) * 2000
+//         objOutput.penumpang = arrPenumpang[i][0]
+//         objOutput.naikDari = asal
+//         objOutput.tujuan = tujuan
+//         console.log(indexTujuan, indexAsal)
+//         objOutput.bayar = bayar
+
+//         arrOutput.push(objOutput)
+//     }
+//     return arrOutput
+// }
+
