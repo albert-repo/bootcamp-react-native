@@ -112,11 +112,11 @@ console.log("Enhanced object literals \n")
 
 //Before ES6 Javascript:
 
-// const fullName = 'John Doe'
+const fullName = 'John Doe'
 
-// const john = {
-//   fullName: fullName
-// }
+const john = {
+  fullName: fullName
+}
 
 // console.log(fullName, john.fullName)
 
