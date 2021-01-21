@@ -1,3 +1,6 @@
+var separator = "===================="
+console.log(separator + "\nFile Latihan\n" + separator);
+
 var personArr = ["John", "Doe", "male", 27]
 var personObj = {
     firstName: "John",
