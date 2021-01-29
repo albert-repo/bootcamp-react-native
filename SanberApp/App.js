@@ -3,7 +3,8 @@ import { Platform, StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity
 import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 // import App from './Tugas/Tugas12/App.js';
 // import App from './Tugas/Tugas13/LoginScreen.js';
-import App from './Tugas/Tugas13/AboutScreen.js';
+// import App from './Tugas/Tugas13/AboutScreen.js';
+import App from './Tugas/Tugas14/App.js'
 // please change the file to test
 
 export default App;
