@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   },
   noteText: {
     paddingLeft: 20,
+    padding: 5,
     borderLeftWidth: 10,
     borderLeftColor: '#e91e63',
   },
