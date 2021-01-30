@@ -24,17 +24,26 @@ export default class HomeScreen extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const FirstScreen = ({ route }) => {
+      console.log(route)
+      console.log(route.params)
+      console.log(route.params.userName)
+    }
+  }
+
   currencyFormat(num) {
     return 'Rp ' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
   }
 
   updatePrice(price) {
+    // console.log(price)
     price = this.state.totalPrice + parseInt(price);
     this.setState({ totalPrice: price });
   }
 
   render() {
-    console.log(data);
+
     return (
       <View style={styles.container}>
         <View
@@ -50,8 +59,9 @@ export default class HomeScreen extends React.Component {
             <Text>
               Hai,{'\n'}
               {/* //? #Soal 1 Tambahan, Simpan userName yang dikirim dari halaman Login pada komponen Text di bawah ini */}
+              {/* <Text>{route.params}</Text> */}
               <Text style={styles.headerText}>
-                {/* {this.props.route.params.userName} */}
+                {this.props.route.params.userName}
               </Text>
             </Text>
 
@@ -72,17 +82,46 @@ export default class HomeScreen extends React.Component {
         </View>
 
         {/* 
-        //? #Soal No 2 (15 poin)
-        //? Buatlah 1 komponen FlatList dengan input berasal dari data.json
-        //? dan pada prop renderItem menggunakan komponen ListItem -- ada di bawah --
-        //? dan memiliki 2 kolom, sehingga menampilkan 2 item per baris (horizontal)
-
-        // Lanjutkan di bawah ini!
-        */}
+          //? #Soal No 2 (15 poin)
+          //? Buatlah 1 komponen FlatList dengan input berasal dari data.json
+          //? dan pada prop renderItem menggunakan komponen ListItem -- ada di bawah --
+          //? dan memiliki 2 kolom, sehingga menampilkan 2 item per baris (horizontal)
+  
+          // Lanjutkan di bawah ini!
+          */}
         {/* clue dapat dilihat di https://snack.expo.io/@kameyin/two-column-flatlist-(method-1) */}
-       
+
+        <FlatList
+          style={{ marginTop: 40 }}
+          data={data.produk}
+          numColumns={2}
+          renderItem={({ item }) => (
+            <View style={styles.itemContainer}>
+              <Image
+                source={{ uri: item.gambaruri }}
+                style={styles.itemImage}
+              />
+              <Text numberOfLines={2} ellipsizeMode="tail" style={styles.itemName}>
+                {item.nama}
+              </Text>
+              <Text style={styles.itemPrice}>
+                {this.currencyFormat(Number(item.harga))}
+              </Text>
+              <Text style={styles.itemStock}>Sisa stok: {item.stock - 1}</Text>
+              <TouchableOpacity
+                style={styles.itemButton}
+                onPress={() => {this.updatePrice(item.harga)}}
+                underlayColor='#fff'>
+                <Text style={styles.buttonText}>BELI</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
+
       </View>
     );
+
+
   }
 }
 
@@ -109,8 +148,8 @@ class ListItem extends React.Component {
         <Text style={styles.itemPrice}>
           {this.currencyFormat(Number(data.harga))}
         </Text>
-        <Text style={styles.itemStock}>Sisa stok: {data.stock-1 }</Text>
-        <Button title="BELI" color="blue" onPress={this.props.updatePrice} />
+        <Text style={styles.itemStock}>Sisa stok: {data.stock - 1}</Text>
+        <Button style={styles.itemButton} title="BELI" onPress={this.props.updatePrice} />
       </View>
     );
   }
@@ -138,21 +177,32 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   itemImage: {
- 
+    width: 150,
+    height: 100,
   },
   itemName: {
-    
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   itemPrice: {
-   
+    fontWeight: 'bold',
+    color: 'blue'
   },
   itemStock: {
-
+    fontSize: 13
   },
   itemButton: {
-
+    marginTop: 5,
+    backgroundColor: 'blue',
+    borderColor: '#fff',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
-    
+    color: 'white',
+    textAlign: 'center',
+    padding: 10,
+    fontSize: 18,
   },
 });

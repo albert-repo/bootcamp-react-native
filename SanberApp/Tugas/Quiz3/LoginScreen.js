@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Button, Alert, TouchableHighlight } from 'react-native';
 
 export default class LoginScreen extends React.Component {
   constructor(props) {
@@ -22,6 +22,20 @@ export default class LoginScreen extends React.Component {
 
     // Kode di sini 
     // clue gunakan if dan else
+    if (this.state.userName && this.state.password) {
+      if (this.state.password == '12345678') {
+        Alert.alert("Success", "Selamat datang " + this.state.userName);
+        this.props.navigation.replace('Home', {
+          userName: this.state.userName,
+        });
+      } else {
+        this.setState({
+          isError: true
+        })
+      }
+    } else {
+      Alert.alert("Info", "Pastikan Username dan Password terisi")
+    }
 
 
   }
@@ -66,6 +80,8 @@ export default class LoginScreen extends React.Component {
     )
   }
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
