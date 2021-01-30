@@ -21,15 +21,17 @@ export default class HomeScreen extends React.Component {
     this.state = {
       searchText: '',
       totalPrice: 0,
+      dataStore: '',
     };
+    this.arrayholder = [];
   }
 
   componentDidMount() {
-    const FirstScreen = ({ route }) => {
-      console.log(route)
-      console.log(route.params)
-      console.log(route.params.userName)
-    }
+    this.arrayholder = data.produk;
+    this.setState({
+      dataStore: data.produk,
+    });
+    // console.log(this.state.dataStore);
   }
 
   currencyFormat(num) {
@@ -41,6 +43,22 @@ export default class HomeScreen extends React.Component {
     price = this.state.totalPrice + parseInt(price);
     this.setState({ totalPrice: price });
   }
+
+  searchFilterFunction = searchText => {
+    this.setState({
+      searchText: searchText,
+    });
+
+    // console.log(this.state.searchText)
+
+    const newData = this.arrayholder.filter(item => {
+      const itemData = `${item.nama.toUpperCase()}`;
+      const textData = searchText.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({ dataStore: newData, });
+
+  };
 
   render() {
 
@@ -77,7 +95,9 @@ export default class HomeScreen extends React.Component {
           <TextInput
             style={{ backgroundColor: 'white', marginTop: 8 }}
             placeholder="Cari barang.."
-            onChangeText={(searchText) => this.setState({ searchText })}
+            // onChangeText={(searchText) => this.setState({ searchText })}
+            onChangeText={searchText => this.searchFilterFunction(searchText)}
+            value={this.state.searchText}
           />
         </View>
 
@@ -93,7 +113,10 @@ export default class HomeScreen extends React.Component {
 
         <FlatList
           style={{ marginTop: 40 }}
-          data={data.produk}
+          //ambil dari file json langsung
+          // data={data.produk}
+          //ambil dari state
+          data={this.state.dataStore}
           numColumns={2}
           renderItem={({ item }) => (
             <View style={styles.itemContainer}>
@@ -110,7 +133,7 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.itemStock}>Sisa stok: {item.stock - 1}</Text>
               <TouchableOpacity
                 style={styles.itemButton}
-                onPress={() => {this.updatePrice(item.harga)}}
+                onPress={() => { this.updatePrice(item.harga) }}
                 underlayColor='#fff'>
                 <Text style={styles.buttonText}>BELI</Text>
               </TouchableOpacity>
