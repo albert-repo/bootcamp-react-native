@@ -21,26 +21,42 @@ const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
 
-export const Home = () => (
+export const Home = ({ navigation }) => (
   <ScreenContainer>
     <Text>Master List Screen</Text>
-    <Button title="React Native by Example" onPress={() => alert("todo!")} />
-    <Button title="React Native School" onPress={() => alert("todo!")} />
-    <Button title="Drawer" onPress={() => alert("todo!")} />
+    <Button
+      title="React Native by Example"
+      onPress={() => navigation.push('Details', { name: 'React Native by Example' })}
+    />
+    <Button
+      title="React Native School"
+      onPress={() => navigation.push('Details', { name: 'React Native School' })}
+    />
+    <Button
+      title="Drawer"
+      onPress={() => navigation.toggleDrawer()}
+    />
   </ScreenContainer>
 );
 
-export const Details = () => (
+export const Details = ({ route }) => (
   <ScreenContainer>
     <Text>Details Screen</Text>
+    {route.params.name && <Text>{route.params.name}</Text>}
   </ScreenContainer>
 );
 
 export const Search = ({ navigation }) => (
   <ScreenContainer>
     <Text>Search Screen</Text>
-    <Button title="Search 2" onPress={() => alert("todo!")} />
-    <Button title="React Native School" onPress={() => alert("todo!")} />
+    <Button title="Search 2" onPress={() => navigation.push("Search2")} />
+    <Button title="React Native School" onPress={() => {
+      navigation.navigate('Home', {
+        screen: 'Details',
+        params: { name: "React Native School" }
+      })
+    }}
+    />
   </ScreenContainer>
 );
 
@@ -54,8 +70,14 @@ export const Profile = ({ navigation }) => {
   return (
     <ScreenContainer>
       <Text>Profile Screen</Text>
-      <Button title="Drawer" onPress={() => alert("todo!")} />
-      <Button title="Sign Out" onPress={() => alert("todo!")} />
+      <Button
+        title="Drawer"
+        onPress={() => navigation.toggleDrawer()}
+      />
+      <Button
+        title="Sign Out"
+        onPress={() => alert("todo!")}
+      />
     </ScreenContainer>
   );
 };
@@ -71,9 +93,9 @@ export const SignIn = ({ navigation }) => {
     <ScreenContainer>
       <Text>Sign In Screen</Text>
       <Button title="Sign In" onPress={() => alert("todo!")} />
-      <Button 
-      title="Create Account" 
-      onPress={() => navigation.push('CreateAccount')} />
+      <Button
+        title="Create Account"
+        onPress={() => navigation.push('CreateAccount')} />
     </ScreenContainer>
   );
 };
@@ -82,7 +104,7 @@ export const CreateAccount = ({ navigation }) => {
   return (
     <ScreenContainer>
       <Text>Create Account Screen</Text>
-      <Button title="Sign Up" onPress={() => alert("todo") } />
+      <Button title="Sign Up" onPress={() => alert("todo")} />
     </ScreenContainer>
   );
 };
