@@ -8,7 +8,8 @@ import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-ic
 // import App from './Tugas/Tugas13/AboutScreen.js';
 // import App from './Tugas/Tugas14/App.js'
 // import App from './Tugas/Tugas15/index.js'
-import App from './Tugas/Tugas15/TugasNavigation/index.js'
+// import App from './Tugas/Tugas15/TugasNavigation/index.js'
+import App from './Tugas/Quiz3/index.js'
 
 // project coba coba
 // import App from './Tugas/src/index.js'
