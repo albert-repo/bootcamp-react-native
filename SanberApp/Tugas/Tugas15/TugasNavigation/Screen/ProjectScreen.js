@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function ProjectScreen (){
     return (
         <View>
-            <Text>Halmaan project screen</Text>
+            <Text>Halaman project screen</Text>
         </View>
     )
 }
