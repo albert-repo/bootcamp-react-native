@@ -1,12 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 
-const SkillScreen = ({navigation}) => {
+const SkillScreen = ({ navigation }) => {
     return (
-        <View>
-            <Text>Halaman Skill Screen (Home Page)</Text>
-            <View style={{ paddingHorizontal: 10 }}>
-                <Button onPress={() => navigation.navigate('MyDrawer')} title="MyDrawer" />
+        <View style={styles.container}>
+            <View style={styles.tabTitle}>
+                <Text>Hi, ini Skill Screen (your Home Page)</Text>
             </View>
         </View>
     )
@@ -14,4 +13,13 @@ const SkillScreen = ({navigation}) => {
 
 export default SkillScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent:'center', 
+        alignItems:'center',
+    },
+    tabTitle: {
+        paddingTop: 60,
+    },
+})

@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import Home from './Screen/Home';
 import Login from './Screen/LoginScreen';
 import Splash from './Screen/Splash';
 import AddScreen from './Screen/AddScreen'
@@ -20,10 +19,9 @@ const Stack = createStackNavigator();
 const index = () => {
     return (
         <NavigationContainer >
-            <Stack.Navigator initialRouteName={Splash}>
+            <Stack.Navigator initialRouteName={Splash} headerMode="none">
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="Login" component={Login} />
-                {/* <Stack.Screen name="Home" component={Home} /> */}
                 <Stack.Screen name="MainApp" component={MainApp} />
                 <Stack.Screen name="MyDrawer" component={MyDrawer} />
             </Stack.Navigator>
@@ -33,7 +31,7 @@ const index = () => {
 const MainApp = () => {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Skill" component={MyDrawer} />
+            <Tab.Screen name="Home" component={MyDrawer} />
             <Tab.Screen name="Project" component={ProjectScreen} />
             <Tab.Screen name="Add" component={AddScreen} />
         </Tab.Navigator>
@@ -42,7 +40,7 @@ const MainApp = () => {
 const MyDrawer = () => {
     return (
         <Drawer.Navigator initialRouteName="MainApp">
-            <Drawer.Screen name="Home / Skill" component={SkillScreen} />
+            <Drawer.Screen name="Home" component={SkillScreen} />
             <Drawer.Screen name="About" component={AboutScreen} />
         </Drawer.Navigator>
     )

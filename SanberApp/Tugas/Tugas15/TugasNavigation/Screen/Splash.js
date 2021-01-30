@@ -8,12 +8,21 @@ const Splash = ({navigation}) => {
     }, [])
 
     return (
-        <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
-            <Text style={{fontSize: 30}}>Tugas 15 - Navigation</Text>
+        <View style={styles.container}>
+            <Text style={styles.tabTitle}>Tugas 15 - Navigation</Text>
         </View>
     )
 }
 
 export default Splash
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent:'center', 
+        alignItems:'center',
+    },
+    tabTitle: {
+        fontSize: 30,
+    },
+})
