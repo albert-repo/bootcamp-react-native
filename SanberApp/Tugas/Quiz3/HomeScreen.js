@@ -118,6 +118,23 @@ export default class HomeScreen extends React.Component {
           //ambil dari state
           data={this.state.dataStore}
           numColumns={2}
+          renderItem={(produk) => (
+            <ListItem
+              data={produk}
+              updatePrice={() =>
+                this.updatePrice(produk.item.harga)}
+            />
+          )}
+          keyExtractor={(produk) => produk.id.toString()}
+        />
+
+        {/* <FlatList
+          style={{ marginTop: 40 }}
+          //ambil dari file json langsung
+          // data={data.produk}
+          //ambil dari state
+          data={this.state.dataStore}
+          numColumns={2}
           renderItem={({ item }) => (
             <View style={styles.itemContainer}>
               <Image
@@ -139,7 +156,7 @@ export default class HomeScreen extends React.Component {
               </TouchableOpacity>
             </View>
           )}
-        />
+        /> */}
 
       </View>
     );
@@ -158,6 +175,7 @@ class ListItem extends React.Component {
 
   render() {
     const data = this.props.data.item;
+    // console.log (data);
     return (
       <View style={styles.itemContainer}>
         <Image
