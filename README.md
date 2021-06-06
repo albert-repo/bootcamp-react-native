@@ -2,4 +2,6 @@
 
 This project is dedicated for learning purpose at Sanbercode.
 
-2021
+React Native Fundamental
+
+2021 (AJ)
